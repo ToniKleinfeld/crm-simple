@@ -13,17 +13,22 @@ import { DialogAddUserComponent } from './dialog-add-user/dialog-add-user.compon
   styleUrl: './user.component.scss',
 })
 export class UserComponent {
-  name?:string;
+  firstName?:string;
+  lastName?:string;
 
   constructor(public dialog: MatDialog) {}
 
   openDialog(): void {
+    const buttonElement = document.activeElement as HTMLElement; // Get the currently focused element
+    buttonElement.blur(); // Remove focus from the button
+
     const dialogRef = this.dialog.open(DialogAddUserComponent, {
-      data: { name: this.name },
+      data: { firstName: this.firstName , lastName: this.lastName},
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      this.name = result;
+    dialogRef.afterClosed().subscribe((data) => {
+      this.firstName = data.firstName;
+      this.lastName = data.lastName;
     });
   }
 }
