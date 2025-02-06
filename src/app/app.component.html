@@ -4,8 +4,8 @@
     <div class="logo-container">Platzhalter für Logo</div>
 
     <ul class="nav-items">
-      <li><mat-icon>dashboard</mat-icon>Dashboard</li>
-      <li><mat-icon>perm_identity</mat-icon>User</li>
+      <li routerLink=""><mat-icon>dashboard</mat-icon>Dashboard</li>
+      <li routerLink="user"><mat-icon>perm_identity</mat-icon>User</li>
     </ul>
 
   </mat-drawer>
@@ -18,8 +18,12 @@
       <span>Simple CRM</span>
     </mat-toolbar>
 
+    <div class="router-wrapper">
+      <router-outlet />
+    </div>
+
   </mat-drawer-content>
 
-  <router-outlet/>
+
 
 </mat-drawer-container>
