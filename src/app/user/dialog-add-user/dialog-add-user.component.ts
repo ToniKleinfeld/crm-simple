@@ -13,6 +13,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { User } from '../../../models/user.class';
 import { StoredDataService } from '../../shared/service/stored-data.service';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @Component({
   selector: 'app-dialog-add-user',
@@ -26,6 +27,7 @@ import { StoredDataService } from '../../shared/service/stored-data.service';
     MatDialogContent,
     MatDialogActions,
     MatDatepickerModule,
+    MatProgressBarModule,
   ],
   providers: [provideNativeDateAdapter()],
   templateUrl: './dialog-add-user.component.html',
@@ -34,6 +36,7 @@ import { StoredDataService } from '../../shared/service/stored-data.service';
 export class DialogAddUserComponent {
   user = new User();
   birthDate!: Date;
+  loading: boolean = false;
 
   constructor(
     public dialogRef: MatDialogRef<DialogAddUserComponent>,
@@ -49,10 +52,12 @@ export class DialogAddUserComponent {
 
   saveUser() {
     this.user.birthDate = this.birthDate.getTime();
-    console.log(this.birthDate)
-
+    this.loading = true;
     this.StoredDataService.addToFireBase(this.user.toJSON());
 
-    this.dialogRef.close();
+    setTimeout(() => {
+      this.dialogRef.close();
+      this.loading = false;
+    }, 1000);
   }
 }

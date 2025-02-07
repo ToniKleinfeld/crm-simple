@@ -24,7 +24,6 @@ export class StoredDataService implements OnDestroy {
   ngOnDestroy() {}
 
   getUserRef() {
-    console.log(collection(this.firestore, this.adressID));
     return collection(this.firestore, this.adressID);
   }
 
