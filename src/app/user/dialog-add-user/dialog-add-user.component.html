@@ -4,19 +4,19 @@
   <div>
     <mat-form-field appearance="outline" class="mr-16">
       <mat-label>First Name</mat-label>
-      <input matInput placeholder="Enter First name.">
+      <input matInput placeholder="Enter First name." [(ngModel)]="user.firstName">
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Last Name</mat-label>
-      <input matInput placeholder="Enter Last name.">
+      <input matInput placeholder="Enter Last name." [(ngModel)]="user.lastName">
     </mat-form-field>
   </div>
 
   <div>
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Birthday</mat-label>
-      <input matInput placeholder="Please enter date of birth." [matDatepicker]="picker1">
+      <input matInput placeholder="Please enter date of birth." [matDatepicker]="picker1" [(ngModel)]="birthDate">
       <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
       <mat-datepicker #picker1></mat-datepicker>
     </mat-form-field>
@@ -25,19 +25,19 @@
   <div>
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Street and House No.</mat-label>
-      <input matInput placeholder="Enter your Street and House No.">
+      <input matInput placeholder="Enter your Street and House No." [(ngModel)]="user.street">
     </mat-form-field>
   </div>
 
   <div>
     <mat-form-field appearance="outline" class="mr-16">
       <mat-label>Zip Code</mat-label>
-      <input matInput placeholder="Enter your Zip Code">
+      <input matInput placeholder="Enter your Zip Code" [(ngModel)]="user.zipCode">
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>City</mat-label>
-      <input matInput placeholder="Enter your City">
+      <input matInput placeholder="Enter your City" [(ngModel)]="user.city">
     </mat-form-field>
   </div>
 
@@ -45,5 +45,5 @@
 
 <mat-dialog-actions>
   <button mat-button color="primary" (click)="onNoClick()">Cancel</button>
-  <button mat-button color="primary">Save</button>
+  <button mat-button color="primary" (click)="saveUser()">Save</button>
 </mat-dialog-actions>
