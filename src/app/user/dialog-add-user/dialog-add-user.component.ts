@@ -12,6 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { User } from '../../../models/user.class';
+import { StoredDataService } from '../../shared/service/stored-data.service';
 
 @Component({
   selector: 'app-dialog-add-user',
@@ -31,10 +32,13 @@ import { User } from '../../../models/user.class';
   styleUrl: './dialog-add-user.component.scss',
 })
 export class DialogAddUserComponent {
-  user: User = new User();
+  user = new User();
   birthDate!: Date;
 
-  constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>) {}
+  constructor(
+    public dialogRef: MatDialogRef<DialogAddUserComponent>,
+    private StoredDataService: StoredDataService
+  ) {}
 
   firstName?: string;
   lastName?: string;
@@ -43,9 +47,12 @@ export class DialogAddUserComponent {
     this.dialogRef.close();
   }
 
-  saveUser(){
-    this.user.birthDate = this.birthDate?.getTime() ;
-    console.log(this.user, this.birthDate);
+  saveUser() {
+    this.user.birthDate = this.birthDate.getTime();
+    console.log(this.birthDate)
+
+    this.StoredDataService.addToFireBase(this.user.toJSON());
+
     this.dialogRef.close();
   }
 }
