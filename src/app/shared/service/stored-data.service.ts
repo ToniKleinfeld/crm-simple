@@ -45,6 +45,7 @@ export class StoredDataService implements OnDestroy {
       firstName: obj.firstName,
       lastName: obj.lastName,
       birthDate: obj.birthDate,
+      mail: obj.mail,
       street: obj.street,
       zipCode: obj.zipCode,
       city: obj.city,
@@ -54,6 +55,7 @@ export class StoredDataService implements OnDestroy {
           firstName: this.firstName,
           lastName: this.lastName,
           birthDate: this.birthDate,
+          mail: this.mail,
           street: this.street,
           zipCode: this.zipCode,
           city: this.city
@@ -63,7 +65,7 @@ export class StoredDataService implements OnDestroy {
   }
 
   ngOnDestroy() {
-    // this.unsubUsers();
+    this.unsubUsers();
   }
 
   getUserRef() {

@@ -8,7 +8,7 @@
       </tr>
       @for ( user of this.getUsers(); track user) {
         <tr>
-          <td>{{user.firstName}} {{user.lastName}}</td>
+          <td>{{user.lastName}}, {{user.firstName}}</td>
           <td>{{user.mail}}</td>
           <td>{{user.city}} {{user.zipCode}}</td>
         </tr>
