@@ -16,30 +16,29 @@ import { User } from '../../../models/user.class';
   providedIn: 'root',
 })
 export class StoredDataService implements OnDestroy {
+  savedUsers: any[] = [];
 
-  savedUsers:any[] = []
-
-  // saveUsersSubject: BehaviorSubject<any> = new BehaviorSubject([]);
+  saveUsersSubject: BehaviorSubject<any> = new BehaviorSubject([]);
 
   private firestore: Firestore = inject(Firestore);
   unsubUsers;
   adressID = 'users';
 
   constructor() {
-    this.unsubUsers = this.subUserList()
+    this.unsubUsers = this.subUserList();
   }
 
-  subUserList(){
+  subUserList() {
     return onSnapshot(this.getUserRef(), (list) => {
       this.savedUsers = [];
-        list.forEach(user => {
-          this.savedUsers.push(this.setUserObject(user.data(),user.id));
-        });
-        // this.saveUsersSubject.next(this.savedUsers);
+      list.forEach((user) => {
+        this.savedUsers.push(this.setUserObject(user.data(), user.id));
       });
+      this.saveUsersSubject.next(this.savedUsers);
+    });
   }
 
-  setUserObject(obj:any, id?:string):User {
+  setUserObject(obj: any, id?: string): User {
     return {
       id: id,
       firstName: obj.firstName,
@@ -58,10 +57,10 @@ export class StoredDataService implements OnDestroy {
           mail: this.mail,
           street: this.street,
           zipCode: this.zipCode,
-          city: this.city
-        }
-      }
-    }
+          city: this.city,
+        };
+      },
+    };
   }
 
   ngOnDestroy() {
@@ -80,7 +79,7 @@ export class StoredDataService implements OnDestroy {
       });
   }
 
-  // getSingleDocRef( docID:string){
-  //   return doc(collection(this.firestore, this.adressID), docID)
-  // }
+  getSingleDocRef( docID:string){
+    return doc(collection(this.firestore, this.adressID), docID)
+  }
 }

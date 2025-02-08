@@ -7,13 +7,12 @@
         <th>City</th>
       </tr>
       @for ( user of this.getUsers(); track user) {
-        <tr>
-          <td>{{user.lastName}}, {{user.firstName}}</td>
-          <td>{{user.mail}}</td>
-          <td>{{user.city}} {{user.zipCode}}</td>
-        </tr>
+      <tr [routerLink]="['/user/'+ user.id]">
+        <td>{{user.lastName}}, {{user.firstName}}</td>
+        <td>{{user.mail}}</td>
+        <td>{{user.city}} {{user.zipCode}}</td>
+      </tr>
       }
-
 
     </table>
   </mat-card-content>
