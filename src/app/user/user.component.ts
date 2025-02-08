@@ -46,9 +46,6 @@ export class UserComponent implements OnInit {
     buttonElement.blur(); // Remove focus from the button
 
     const dialogRef = this.dialog.open(DialogAddUserComponent, {
-      // data: {},
     });
-
-    // dialogRef.afterClosed().subscribe((data) => {});
   }
 }
