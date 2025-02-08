@@ -18,20 +18,25 @@ export class UserDatailComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute
   ) { }
 
+  private saveUsersSubscription!:any;
+  private routeParamSubscription!:any
+
   user?: User;
   userID?:string | null;
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe((params) => {
+    this.routeParamSubscription = this.route.paramMap.subscribe((params) => {
       this.userID = params.get('id');
     });
 
-    this.StoredDataService.saveUsersSubject.subscribe((user) => {
+    this.saveUsersSubscription = this.StoredDataService.saveUsersSubject.subscribe(() => {
       this.user = this. getUsersData();
     })
   }
 
   ngOnDestroy(): void {
+    this.saveUsersSubscription.unsubscribe();
+    this.routeParamSubscription.unsubscribe();
   }
 
   getUsersData() {
