@@ -4,7 +4,6 @@ import { StoredDataService } from '../../shared/service/stored-data.service';
 import { ActivatedRoute } from '@angular/router';
 import { User } from '../../../models/user.class';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogEditAddressComponent } from './dialog-edit-address/dialog-edit-address.component';
 import { MaterialModule } from '../../shared/module/material.module';
 import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.component';
 
@@ -55,19 +54,21 @@ export class UserDatailComponent implements OnInit, OnDestroy {
     this.blurArria();
 
     if (edit == '') {
-      this.openDialog(DialogEditUserComponent);
+      this.openDialog(DialogEditUserComponent, 'user');
     } else if (edit == 'address') {
-      this.openDialog(DialogEditAddressComponent);
+      this.openDialog(DialogEditUserComponent, 'address');
     }
   }
 
-  openDialog(component: any) {
+  openDialog(component: any, editPart: any) {
     this.blurArria();
 
-    const dialogRef = this.dialog.open(component, {});
+    const dialogRef = this.dialog.open(component, {
+      data: { userID: this.userID, editPart },
+    });
   }
 
-  blurArria(){
+  blurArria() {
     const buttonElement = document.activeElement as HTMLElement;
     buttonElement.blur();
   }

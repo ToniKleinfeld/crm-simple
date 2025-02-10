@@ -1,1 +1,71 @@
-<p>dialog-edit-user works!</p>
+<div class="dialog-container">
+
+  @if (loading) {
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  }
+
+  @if (editPart == 'user'){
+  <h2 mat-dialog-title>Edit User</h2>
+  <mat-dialog-content class="form-container">
+
+    <div>
+      <mat-form-field appearance="outline" class="mr-16">
+        <mat-label>First Name</mat-label>
+        <input [disabled]="loading" matInput placeholder="Enter First name." [(ngModel)]="user.firstName">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input [disabled]="loading" matInput placeholder="Enter Last name." [(ngModel)]="user.lastName">
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Birthday</mat-label>
+        <input [disabled]="loading" matInput placeholder="Please enter date of birth." [matDatepicker]="picker1"
+          [(ngModel)]="birthDate">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>E-mail</mat-label>
+        <input [disabled]="loading" matInput placeholder="Enter your E-mail." [(ngModel)]="user.mail">
+      </mat-form-field>
+    </div>
+
+  </mat-dialog-content>
+  } @else if(editPart == 'address'){
+  <h2 mat-dialog-title>Edit Adress</h2>
+  <mat-dialog-content class="form-container">
+
+    <div>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Street and House No.</mat-label>
+        <input [disabled]="loading" matInput placeholder="Enter your Street and House No." [(ngModel)]="user.street">
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline" class="mr-16">
+        <mat-label>Zip Code</mat-label>
+        <input [disabled]="loading" matInput placeholder="Enter your Zip Code" [(ngModel)]="user.zipCode">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>City</mat-label>
+        <input [disabled]="loading" matInput placeholder="Enter your City" [(ngModel)]="user.city">
+      </mat-form-field>
+    </div>
+
+  </mat-dialog-content>
+  }
+
+  <mat-dialog-actions>
+    <button [disabled]="loading" mat-button color="primary" (click)="onNoClick()">Cancel</button>
+    <button [disabled]="loading" mat-button color="primary" (click)="saveEdit()" cdkFocusInitial>Save</button>
+  </mat-dialog-actions>
+</div>
