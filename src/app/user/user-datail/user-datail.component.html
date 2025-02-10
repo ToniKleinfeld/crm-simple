@@ -1,5 +1,16 @@
 <mat-card>
   <mat-card-content class="user-detail-header">
+
+    <div class="edit-button-container">
+      <button mat-icon-button color="basic" matTooltip="Menu" [matMenuTriggerFor]="menuName">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menuName="matMenu">
+        <button mat-menu-item (click)="openAddressDialog()">Edit</button>
+        <button mat-menu-item>Delte</button>
+      </mat-menu>
+    </div>
+
     <img src="./assets/img/male.png" alt="">
     <div class="user-basic-info">
       <h2>{{user?.lastName}}, {{user?.firstName}}</h2>
@@ -12,9 +23,13 @@
 <mat-card class="mt-32">
 
   <div class="edit-button-container">
-    <button  mat-icon-button color="basic" matTooltip="Edit adress." (click)="openAddressDialog()" >
+    <button mat-icon-button color="basic" matTooltip="Menu" [matMenuTriggerFor]="menu">
       <mat-icon>more_vert</mat-icon>
     </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="openAddressDialog()">Edit</button>
+      <button mat-menu-item>Delte</button>
+    </mat-menu>
   </div>
 
   <mat-card-header>
