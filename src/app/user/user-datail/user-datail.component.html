@@ -2,12 +2,11 @@
   <mat-card-content class="user-detail-header">
 
     <div class="edit-button-container">
-      <button mat-icon-button color="basic" matTooltip="Menu" [matMenuTriggerFor]="menuName">
+      <button mat-icon-button color="basic" matTooltip="Menu" [matMenuTriggerFor]="menuName" (click)="blurArria()" cdkTrapFocus>
         <mat-icon>more_vert</mat-icon>
       </button>
-      <mat-menu #menuName="matMenu">
-        <button mat-menu-item (click)="openAddressDialog()">Edit</button>
-        <button mat-menu-item>Delte</button>
+      <mat-menu #menuName="matMenu" xPosition="before" >
+        <button mat-menu-item (click)="openEdit('')" cdkTrapFocus>Edit</button>
       </mat-menu>
     </div>
 
@@ -23,12 +22,11 @@
 <mat-card class="mt-32">
 
   <div class="edit-button-container">
-    <button mat-icon-button color="basic" matTooltip="Menu" [matMenuTriggerFor]="menu">
+    <button mat-icon-button color="basic" matTooltip="Menu" [matMenuTriggerFor]="menu" (click)="blurArria()" cdkTrapFocus>
       <mat-icon>more_vert</mat-icon>
     </button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="openAddressDialog()">Edit</button>
-      <button mat-menu-item>Delte</button>
+    <mat-menu #menu="matMenu" xPosition="before">
+      <button mat-menu-item (click)="openEdit('address')" cdkTrapFocus >Edit</button>
     </mat-menu>
   </div>
 

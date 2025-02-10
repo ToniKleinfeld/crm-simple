@@ -1,20 +1,10 @@
 import { Component } from '@angular/core';
-import {
-  MatDialogRef,
-  MatDialogTitle,
-  MatDialogContent,
-  MatDialogActions,
-} from '@angular/material/dialog';
-
-import { provideNativeDateAdapter } from '@angular/material/core';
 import { MaterialModule } from '../../../shared/module/material.module';
 
 @Component({
   selector: 'app-dialog-edit-address',
   standalone: true,
-  imports: [
-   MaterialModule
-  ],
+  imports: [MaterialModule],
   templateUrl: './dialog-edit-address.component.html',
   styleUrl: './dialog-edit-address.component.scss',
 })

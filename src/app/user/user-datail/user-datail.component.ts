@@ -6,6 +6,7 @@ import { User } from '../../../models/user.class';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogEditAddressComponent } from './dialog-edit-address/dialog-edit-address.component';
 import { MaterialModule } from '../../shared/module/material.module';
+import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.component';
 
 @Component({
   selector: 'app-user-datail',
@@ -50,14 +51,24 @@ export class UserDatailComponent implements OnInit, OnDestroy {
     return filterForUserId[0];
   }
 
-  openAddressDialog() {
-    const buttonElement = document.activeElement as HTMLElement; // Get the currently focused element
-    buttonElement.blur(); // Remove focus from the button
+  openEdit(edit: string) {
+    this.blurArria();
 
-    const dialogRef = this.dialog.open(DialogEditAddressComponent, {
-      // data: {},
-    });
+    if (edit == '') {
+      this.openDialog(DialogEditUserComponent);
+    } else if (edit == 'address') {
+      this.openDialog(DialogEditAddressComponent);
+    }
+  }
 
-    // dialogRef.afterClosed().subscribe((data) => {});
+  openDialog(component: any) {
+    this.blurArria();
+
+    const dialogRef = this.dialog.open(component, {});
+  }
+
+  blurArria(){
+    const buttonElement = document.activeElement as HTMLElement;
+    buttonElement.blur();
   }
 }
