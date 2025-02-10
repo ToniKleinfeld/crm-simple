@@ -1,5 +1,4 @@
 import { Component, OnDestroy, OnInit, Inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { MaterialModule } from '../../../shared/module/material.module';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { User } from '../../../../models/user.class';
@@ -26,7 +25,6 @@ export class DialogEditUserComponent implements OnInit, OnDestroy {
   constructor(
     public dialogRef: MatDialogRef<DialogEditUserComponent>,
     private StoredDataService: StoredDataService,
-    private route: ActivatedRoute,
     @Inject(MAT_DIALOG_DATA) public data: { userID: string; editPart: string }
   ) {
     this.userID = data.userID;
@@ -50,6 +48,7 @@ export class DialogEditUserComponent implements OnInit, OnDestroy {
 
   saveEdit() {
     this.loading = true;
+    this.StoredDataService.updateUser(this.user);
 
     setTimeout(() => {
       this.dialogRef.close();

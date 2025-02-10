@@ -82,4 +82,12 @@ export class StoredDataService implements OnDestroy {
   getSingleDocRef( docID:string){
     return doc(collection(this.firestore, this.adressID), docID)
   }
+
+  async updateUser(user: User){
+    if (user.id) {
+      await updateDoc(this.getSingleDocRef(user.id), user.toJSON()).catch(
+        (err) => {console.error(err)}
+      )
+    }
+  }
 }
