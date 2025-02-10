@@ -2,7 +2,7 @@ export class User {
   id?:string;
   firstName: string;
   lastName: string;
-  birthDate: number;
+  birthDate: Date;
   mail:string;
   street: string;
   zipCode: number;

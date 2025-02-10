@@ -8,6 +8,7 @@ import {
   addDoc,
   updateDoc,
   deleteDoc,
+  Timestamp
 } from '@angular/fire/firestore';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '../../../models/user.class';
@@ -43,7 +44,7 @@ export class StoredDataService implements OnDestroy {
       id: id,
       firstName: obj.firstName,
       lastName: obj.lastName,
-      birthDate: obj.birthDate,
+      birthDate: obj.birthDate.toDate(),
       mail: obj.mail,
       street: obj.street,
       zipCode: obj.zipCode,

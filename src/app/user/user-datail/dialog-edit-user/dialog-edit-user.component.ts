@@ -16,7 +16,6 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 export class DialogEditUserComponent implements OnInit, OnDestroy {
   user: User = new User();
   userID?: string | null;
-  birthDate!: Date;
   loading: boolean = false;
   editPart?: string;
 

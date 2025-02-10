@@ -16,7 +16,6 @@ import { MaterialModule } from '../../shared/module/material.module';
 })
 export class DialogAddUserComponent {
   user = new User();
-  birthDate!: Date;
   loading: boolean = false;
 
   constructor(
@@ -32,7 +31,6 @@ export class DialogAddUserComponent {
   }
 
   saveUser() {
-    this.user.birthDate = this.birthDate.getTime();
     this.loading = true;
     this.StoredDataService.addToFireBase(this.user.toJSON());
 
