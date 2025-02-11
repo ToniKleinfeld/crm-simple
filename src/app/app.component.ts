@@ -11,5 +11,4 @@ import { MaterialModule } from './shared/module/material.module';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'crm-simple';
 }
