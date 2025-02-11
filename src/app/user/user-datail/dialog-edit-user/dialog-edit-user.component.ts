@@ -1,15 +1,30 @@
 import { Component, OnDestroy, OnInit, Inject } from '@angular/core';
-import { MaterialModule } from '../../../shared/module/material.module';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { User } from '../../../../models/user.class';
 import { StoredDataService } from '../../../shared/service/stored-data.service';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { CommonModule } from '@angular/common';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-dialog-edit-user',
   standalone: true,
-  imports: [MaterialModule,CommonModule],
+  imports: [
+    CommonModule,
+    MatProgressBarModule,
+    MatDialogModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatButtonModule,
+  ],
   providers: [provideNativeDateAdapter()],
   templateUrl: './dialog-edit-user.component.html',
   styleUrl: './dialog-edit-user.component.scss',
@@ -31,9 +46,24 @@ export class DialogEditUserComponent implements OnInit, OnDestroy {
     this.editPart = data.editPart;
   }
 
-  userImages: string[] = ['male1','female1','male2','female2','male3','female3','male4','female4','male5','female5','male6','female6','male7','female7'];
-  pickedImg?:number ;
-  oldImg?:string;
+  userImages: string[] = [
+    'male1',
+    'female1',
+    'male2',
+    'female2',
+    'male3',
+    'female3',
+    'male4',
+    'female4',
+    'male5',
+    'female5',
+    'male6',
+    'female6',
+    'male7',
+    'female7',
+  ];
+  pickedImg?: number;
+  oldImg?: string;
 
   ngOnInit(): void {
     this.saveUsersSubscription =
@@ -68,7 +98,7 @@ export class DialogEditUserComponent implements OnInit, OnDestroy {
     return filterForUserId[0];
   }
 
-  changeProfilePic(id:number) {
+  changeProfilePic(id: number) {
     this.pickedImg = id;
     this.user.img = this.userImages[id];
   }

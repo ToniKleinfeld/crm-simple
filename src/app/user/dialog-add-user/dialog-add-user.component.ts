@@ -1,15 +1,27 @@
 import { Component } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { User } from '../../../models/user.class';
 import { StoredDataService } from '../../shared/service/stored-data.service';
-
-import { MaterialModule } from '../../shared/module/material.module';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-dialog-add-user',
   standalone: true,
-  imports: [MaterialModule],
+  imports: [
+    MatProgressBarModule,
+    MatDialogModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatButtonModule,
+  ],
   providers: [provideNativeDateAdapter()],
   templateUrl: './dialog-add-user.component.html',
   styleUrl: './dialog-add-user.component.scss',

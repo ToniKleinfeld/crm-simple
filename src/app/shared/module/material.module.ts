@@ -9,10 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [],
@@ -27,10 +25,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatInputModule,
     MatFormFieldModule,
     MatDatepickerModule,
-    MatToolbarModule,
-    MatSidenavModule,
     MatProgressBarModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
   ],
 
   exports: [
@@ -44,10 +40,9 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatInputModule,
     MatFormFieldModule,
     MatDatepickerModule,
-    MatToolbarModule,
-    MatSidenavModule,
+
     MatProgressBarModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
   ],
 })
 export class MaterialModule {}

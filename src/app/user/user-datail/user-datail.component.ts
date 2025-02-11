@@ -1,16 +1,18 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-
 import { StoredDataService } from '../../shared/service/stored-data.service';
 import { ActivatedRoute } from '@angular/router';
 import { User } from '../../../models/user.class';
 import { MatDialog } from '@angular/material/dialog';
-import { MaterialModule } from '../../shared/module/material.module';
 import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.component';
+import { MatIcon } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-user-datail',
   standalone: true,
-  imports: [MaterialModule],
+  imports: [MatIcon, MatMenuModule, MatButtonModule, MatCardModule],
   templateUrl: './user-datail.component.html',
   styleUrl: './user-datail.component.scss',
 })
@@ -53,7 +55,7 @@ export class UserDatailComponent implements OnInit, OnDestroy {
   openEdit(edit: string) {
     this.blurArria();
 
-      this.openDialog(DialogEditUserComponent, edit);
+    this.openDialog(DialogEditUserComponent, edit);
   }
 
   openDialog(component: any, editPart: any) {

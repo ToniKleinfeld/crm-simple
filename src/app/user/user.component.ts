@@ -5,7 +5,10 @@ import { User } from '../../models/user.class';
 import { StoredDataService } from '../shared/service/stored-data.service';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { MaterialModule } from '../shared/module/material.module';
+import { MatIcon } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-user',
@@ -13,7 +16,10 @@ import { MaterialModule } from '../shared/module/material.module';
   imports: [
     CommonModule,
     RouterLink,
-    MaterialModule
+    MatIcon,
+    MatTooltipModule,
+    MatCardModule,
+    MatButtonModule
   ],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss',
