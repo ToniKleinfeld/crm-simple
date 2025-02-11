@@ -6,11 +6,13 @@
         <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menuName="matMenu" xPosition="before">
-        <button mat-menu-item (click)="openEdit('')">Edit personal info</button>
+        <button mat-menu-item (click)="openEdit('user')">Edit personal info</button>
+        <button mat-menu-item (click)="openEdit('image')">Change profile image</button>
+        <button mat-menu-item (click)="openEdit('bgc')">Change background color</button>
       </mat-menu>
     </div>
 
-    <img src="./assets/img/male.png" alt="">
+    <img src="./assets/img/{{user?.img}}.png" alt="">
     <div class="user-basic-info">
       <h2>{{user?.lastName}}, {{user?.firstName}}</h2>
       <a class="mailLink" href="mailto:{{user?.mail}}">{{user?.mail}}</a>

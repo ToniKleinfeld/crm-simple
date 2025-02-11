@@ -53,11 +53,7 @@ export class UserDatailComponent implements OnInit, OnDestroy {
   openEdit(edit: string) {
     this.blurArria();
 
-    if (edit == '') {
-      this.openDialog(DialogEditUserComponent, 'user');
-    } else if (edit == 'address') {
-      this.openDialog(DialogEditUserComponent, 'address');
-    }
+      this.openDialog(DialogEditUserComponent, edit);
   }
 
   openDialog(component: any, editPart: any) {

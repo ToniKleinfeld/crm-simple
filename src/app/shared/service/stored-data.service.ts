@@ -49,6 +49,7 @@ export class StoredDataService implements OnDestroy {
       street: obj.street,
       zipCode: obj.zipCode,
       city: obj.city,
+      img: obj ? obj.img : 'male1',
 
       toJSON() {
         return {
@@ -59,6 +60,7 @@ export class StoredDataService implements OnDestroy {
           street: this.street,
           zipCode: this.zipCode,
           city: this.city,
+          img: this.img
         };
       },
     };

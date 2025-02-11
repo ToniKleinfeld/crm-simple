@@ -66,10 +66,40 @@
 
   </mat-dialog-content>
 
+  } @else if(editPart == 'image'){
+
+  <h2 mat-dialog-title>Change your Profile Pic</h2>
+  <mat-dialog-content class="form-container">
+
+    <div class="image-container">
+
+      @for (image of userImages; track $index) {
+
+      <button [disabled]="loading" class="profilePic" (click)="changeProfilePic($index)"
+        style="background-image: url('./assets/img/{{image}}.png')" [ngClass]="{'selectedImg': pickedImg == $index}"></button>
+      }
+
+    </div>
+
+  </mat-dialog-content>
+  } @else if(editPart == 'bgc'){
+
+  <h2 mat-dialog-title>Change your profile background color</h2>
+  <mat-dialog-content class="form-container">
+
+
+    <div>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Street and House No.</mat-label>
+        <input [disabled]="loading" matInput placeholder="Enter your Street and House No." [(ngModel)]="user.street">
+      </mat-form-field>
+    </div>
+
+  </mat-dialog-content>
   }
 
   <mat-dialog-actions>
     <button [disabled]="loading" mat-button color="primary" (click)="onNoClick()">Cancel</button>
-    <button [disabled]="loading" mat-button color="primary" (click)="saveEdit()" cdkFocusInitial>Save</button>
+    <button [disabled]="loading" mat-button color="primary" (click)="saveEdit()">Save</button>
   </mat-dialog-actions>
 </div>
