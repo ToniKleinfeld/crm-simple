@@ -8,11 +8,12 @@ import { MatIcon } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-user-datail',
   standalone: true,
-  imports: [MatIcon, MatMenuModule, MatButtonModule, MatCardModule],
+  imports: [MatIcon, MatMenuModule, MatButtonModule, MatCardModule, CommonModule],
   templateUrl: './user-datail.component.html',
   styleUrl: './user-datail.component.scss',
 })

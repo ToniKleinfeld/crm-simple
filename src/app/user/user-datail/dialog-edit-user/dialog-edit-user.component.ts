@@ -35,6 +35,7 @@ export class DialogEditUserComponent implements OnInit, OnDestroy {
   loading: boolean = false;
   editPart?: string;
 
+
   private saveUsersSubscription!: any;
 
   constructor(
@@ -64,6 +65,7 @@ export class DialogEditUserComponent implements OnInit, OnDestroy {
   ];
   pickedImg?: number;
   oldImg?: string;
+  oldColor?:string;
 
   ngOnInit(): void {
     this.saveUsersSubscription =
@@ -77,6 +79,7 @@ export class DialogEditUserComponent implements OnInit, OnDestroy {
   }
 
   onNoClick(): void {
+    this.user.bgColor = this.oldColor ? this.oldColor : '#299ace';
     this.user.img = this.oldImg ? this.oldImg : 'male1';
     this.dialogRef.close();
   }
@@ -95,6 +98,7 @@ export class DialogEditUserComponent implements OnInit, OnDestroy {
     let userarray = this.StoredDataService.savedUsers;
     let filterForUserId = userarray.filter((user) => user.id === this.userID);
     this.oldImg = filterForUserId[0].img;
+    this.oldColor = filterForUserId[0].bgColor;
     return filterForUserId[0];
   }
 

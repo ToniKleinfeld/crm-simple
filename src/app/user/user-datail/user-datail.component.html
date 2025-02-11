@@ -1,7 +1,7 @@
 <mat-card>
-  <mat-card-content class="user-detail-header">
+  <mat-card-content class="user-detail-header" [ngStyle]="{'background-color': user?.bgColor}">
 
-    <div class="edit-button-container">
+    <div class="edit-button-container" >
       <button mat-icon-button color="basic" matTooltip="Menu" [matMenuTriggerFor]="menuName" (click)="blurArria()">
         <mat-icon>more_vert</mat-icon>
       </button>

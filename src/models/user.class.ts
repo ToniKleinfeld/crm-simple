@@ -8,6 +8,7 @@ export class User {
   zipCode: number;
   city: string;
   img: string;
+  bgColor: string;
 
   constructor(obj?: any) {
     this.firstName = obj ? obj.firstName : '';
@@ -18,6 +19,7 @@ export class User {
     this.zipCode = obj ? obj.zipCode : '';
     this.city = obj ? obj.city : '';
     this.img = obj ? obj.img : 'male1'
+    this.bgColor = obj ? obj.bgColor : ''
   }
 
   public toJSON() {
@@ -29,7 +31,8 @@ export class User {
       street: this.street,
       zipCode: this.zipCode,
       city: this.city,
-      img : this.img
+      img : this.img,
+      bgColor : this.bgColor
     }
   }
 }

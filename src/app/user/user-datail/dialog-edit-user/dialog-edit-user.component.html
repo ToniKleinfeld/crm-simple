@@ -87,11 +87,10 @@
   <h2 mat-dialog-title>Change your profile background color</h2>
   <mat-dialog-content class="form-container">
 
-
     <div>
       <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Street and House No.</mat-label>
-        <input [disabled]="loading" matInput placeholder="Enter your Street and House No." [(ngModel)]="user.street">
+        <mat-label>Pic a color</mat-label>
+        <input [disabled]="loading" matInput placeholder="Enter your Street and House No." [(ngModel)]="user.bgColor" type="color" style="height: 60px;">
       </mat-form-field>
     </div>
 
