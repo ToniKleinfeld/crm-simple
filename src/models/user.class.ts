@@ -19,7 +19,7 @@ export class User {
     this.zipCode = obj ? obj.zipCode : '';
     this.city = obj ? obj.city : '';
     this.img = obj ? obj.img : 'male1'
-    this.bgColor = obj ? obj.bgColor : ''
+    this.bgColor = obj ? obj.bgColor : '#299ace'
   }
 
   public toJSON() {
