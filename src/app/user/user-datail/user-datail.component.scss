@@ -15,6 +15,7 @@
 
 .user-basic-info {
   height: 100px;
+  width: 100%;
   font-size: 18px;
   margin-left: 16px;
   @include main.center($ai:flex-start);
@@ -23,7 +24,7 @@
 
   h2{
     font-size: 40px;
-    margin-bottom:8px ;
+    margin:16px 0;
   }
 }
 
@@ -31,4 +32,14 @@
   position: absolute;
   right: 10px;
   top: 10px;
+}
+
+.birthDay{
+  align-self: flex-end;
+  padding-right: 16px;
+}
+
+.mailLink{
+  text-decoration: none;
+  color: unset;
 }

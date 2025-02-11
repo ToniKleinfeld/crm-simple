@@ -5,15 +5,16 @@
       <button mat-icon-button color="basic" matTooltip="Menu" [matMenuTriggerFor]="menuName" (click)="blurArria()">
         <mat-icon>more_vert</mat-icon>
       </button>
-      <mat-menu #menuName="matMenu" xPosition="before" >
-        <button mat-menu-item (click)="openEdit('')">Edit</button>
+      <mat-menu #menuName="matMenu" xPosition="before">
+        <button mat-menu-item (click)="openEdit('')">Edit personal info</button>
       </mat-menu>
     </div>
 
     <img src="./assets/img/male.png" alt="">
     <div class="user-basic-info">
       <h2>{{user?.lastName}}, {{user?.firstName}}</h2>
-      {{user?.mail}}
+      <a class="mailLink" href="mailto:{{user?.mail}}">{{user?.mail}}</a>
+      <div class="birthDay"> Born : {{user?.birthDate?.toDateString()}}</div>
     </div>
 
   </mat-card-content>
@@ -26,7 +27,7 @@
       <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #menu="matMenu" xPosition="before">
-      <button mat-menu-item (click)="openEdit('address')" >Edit</button>
+      <button mat-menu-item (click)="openEdit('address')">Edit address</button>
     </mat-menu>
   </div>
 
