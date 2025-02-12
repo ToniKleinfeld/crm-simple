@@ -35,7 +35,6 @@ export class DialogEditUserComponent implements OnInit, OnDestroy {
   loading: boolean = false;
   editPart?: string;
 
-
   private saveUsersSubscription!: any;
 
   constructor(
@@ -63,9 +62,9 @@ export class DialogEditUserComponent implements OnInit, OnDestroy {
     'male7',
     'female7',
   ];
+
   pickedImg?: number;
-  oldImg?: string;
-  oldColor?:string;
+  oldUserInfo?: any;
 
   ngOnInit(): void {
     this.saveUsersSubscription =
@@ -79,8 +78,7 @@ export class DialogEditUserComponent implements OnInit, OnDestroy {
   }
 
   onNoClick(): void {
-    this.user.bgColor = this.oldColor ? this.oldColor : '#299ace';
-    this.user.img = this.oldImg ? this.oldImg : 'male1';
+    this.resetUser()
     this.dialogRef.close();
   }
 
@@ -97,13 +95,38 @@ export class DialogEditUserComponent implements OnInit, OnDestroy {
   getUsersData() {
     let userarray = this.StoredDataService.savedUsers;
     let filterForUserId = userarray.filter((user) => user.id === this.userID);
-    this.oldImg = filterForUserId[0].img;
-    this.oldColor = filterForUserId[0].bgColor;
+    this. oldUserInfo = this.saveOldUserData(filterForUserId[0])
     return filterForUserId[0];
   }
 
   changeProfilePic(id: number) {
     this.pickedImg = id;
     this.user.img = this.userImages[id];
+  }
+
+  saveOldUserData(obj:any){
+    return {
+      firstName : obj.firstName,
+      lastName : obj.lastName,
+      birthDate : obj.birthDate,
+      mail : obj.mail,
+      street : obj.street,
+      zipCode : obj.zipCode,
+      city : obj.city,
+      img : obj.img,
+      bgColor : obj.bgColor,
+    }
+  }
+
+  resetUser(){
+    this.user.firstName = this.oldUserInfo?.firstName!;
+    this.user.lastName = this.oldUserInfo?.lastName!;
+    this.user.birthDate = this.oldUserInfo?.birthDate!;
+    this.user.mail = this.oldUserInfo?.mail!;
+    this.user.street = this.oldUserInfo?.street!;
+    this.user.zipCode = this.oldUserInfo?.zipCode!;
+    this.user.city = this.oldUserInfo?.city!;
+    this.user.img = this.oldUserInfo?.img!;
+    this.user.bgColor = this.oldUserInfo?.bgColor!;
   }
 }

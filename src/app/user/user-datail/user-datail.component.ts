@@ -39,6 +39,8 @@ export class UserDatailComponent implements OnInit, OnDestroy {
       this.StoredDataService.saveUsersSubject.subscribe(() => {
         this.user = this.getUsersData();
       });
+
+      this.blurArria()
   }
 
   ngOnDestroy(): void {

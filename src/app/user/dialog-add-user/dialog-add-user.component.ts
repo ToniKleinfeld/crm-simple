@@ -44,11 +44,25 @@ export class DialogAddUserComponent {
 
   saveUser() {
     this.loading = true;
-    this.StoredDataService.addToFireBase(this.user.toJSON());
+
+    if (this.checkForm()) {
+      this.StoredDataService.addToFireBase(this.user.toJSON());
+    }
 
     setTimeout(() => {
       this.dialogRef.close();
       this.loading = false;
     }, 1000);
+  }
+
+  checkForm() {
+    return (
+      this.user.firstName !== '' &&
+      this.user.lastName !== '' &&
+      this.user.mail !== '' &&
+      this.user.street !== '' &&
+      this.user.zipCode !== null &&
+      this.user.city !== ''
+    );
   }
 }

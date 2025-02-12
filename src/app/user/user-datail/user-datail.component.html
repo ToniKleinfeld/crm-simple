@@ -2,11 +2,11 @@
   <mat-card-content class="user-detail-header" [ngStyle]="{'background-color': user?.bgColor}">
 
     <div class="edit-button-container" >
-      <button mat-icon-button color="basic" matTooltip="Menu" [matMenuTriggerFor]="menuName" (click)="blurArria()">
+      <button mat-icon-button color="basic" matTooltip="Menu" [matMenuTriggerFor]="menuName" >
         <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menuName="matMenu" xPosition="before" >
-        <span mat-menu-item (click)="openEdit('user')" >Edit personal info</span>
+        <span mat-menu-item (click)="openEdit('user')"  >Edit personal info</span>
         <span mat-menu-item (click)="openEdit('image')" >Change profile image</span>
         <span mat-menu-item (click)="openEdit('bgc')" > Change background color</span>
       </mat-menu>
@@ -25,11 +25,11 @@
 <mat-card class="mt-32">
 
   <div class="edit-button-container">
-    <button mat-icon-button color="basic" matTooltip="Menu" [matMenuTriggerFor]="menu" (click)="blurArria()">
+    <button mat-icon-button color="basic" matTooltip="Menu" [matMenuTriggerFor]="menu" >
       <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #menu="matMenu" xPosition="before">
-      <span mat-menu-item (click)="openEdit('address')" >Edit address</span>
+      <span mat-menu-item (click)="openEdit('address')">Edit address</span>
     </mat-menu>
   </div>
 
