@@ -42,13 +42,13 @@ export class StoredDataService implements OnDestroy {
   setUserObject(obj: any, id?: string): User {
     return {
       id: id,
-      firstName: obj.firstName,
-      lastName: obj.lastName,
-      birthDate: obj.birthDate.toDate(),
-      mail: obj.mail,
-      street: obj.street,
-      zipCode: obj.zipCode,
-      city: obj.city,
+      firstName: obj ? obj.firstName : 'Empty',
+      lastName:  obj ? obj.lastName : 'Empty',
+      birthDate: obj ? obj.birthDate.toDate() : new Date,
+      mail: obj ? obj.mail : 'Empty',
+      street: obj ? obj.street : 'Empty',
+      zipCode:  obj ? obj.zipCode : '00000',
+      city: obj ? obj.city : 'Empty' ,
       img: obj ? obj.img : 'male1',
       bgColor: obj ? obj.bgColor : '#299ace',
 
