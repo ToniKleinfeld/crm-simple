@@ -40,11 +40,13 @@ export class UserComponent implements OnInit {
     return this.StoredDataService.savedUsers;
   }
 
-  openDialog(): void {
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
     const buttonElement = document.activeElement as HTMLElement; // Get the currently focused element
     buttonElement.blur(); // Remove focus from the button
 
     const dialogRef = this.dialog.open(DialogAddUserComponent, {
+      enterAnimationDuration,
+      exitAnimationDuration,
     });
   }
 }

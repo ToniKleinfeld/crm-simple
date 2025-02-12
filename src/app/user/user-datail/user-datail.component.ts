@@ -58,14 +58,16 @@ export class UserDatailComponent implements OnInit, OnDestroy {
   openEdit(edit: string) {
     this.blurArria();
 
-    this.openDialog(DialogEditUserComponent, edit);
+    this.openDialog(DialogEditUserComponent, edit , '1500ms', '800ms');
   }
 
-  openDialog(component: any, editPart: any) {
+  openDialog(component: any, editPart: any ,enterAnimationDuration: string, exitAnimationDuration: string) {
     this.blurArria();
 
     const dialogRef = this.dialog.open(component, {
       data: { userID: this.userID, editPart },
+      enterAnimationDuration,
+      exitAnimationDuration,
     });
   }
 
