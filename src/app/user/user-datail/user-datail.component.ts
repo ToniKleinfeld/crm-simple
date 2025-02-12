@@ -36,11 +36,9 @@ export class UserDatailComponent implements OnInit, OnDestroy {
     });
 
     this.saveUsersSubscription =
-      this.StoredDataService.saveUsersSubject.subscribe(() => {
-        this.user = this.getUsersData();
-      });
-
-      this.blurArria()
+    this.StoredDataService.saveUsersSubject.subscribe(() => {
+      this.user = this.getUsersData();
+    });
   }
 
   ngOnDestroy(): void {
@@ -56,23 +54,17 @@ export class UserDatailComponent implements OnInit, OnDestroy {
   }
 
   openEdit(edit: string) {
-    this.blurArria();
-
     this.openDialog(DialogEditUserComponent, edit , '1500ms', '800ms');
   }
 
   openDialog(component: any, editPart: any ,enterAnimationDuration: string, exitAnimationDuration: string) {
-    this.blurArria();
-
     const dialogRef = this.dialog.open(component, {
       data: { userID: this.userID, editPart },
       enterAnimationDuration,
       exitAnimationDuration,
     });
-  }
 
-  blurArria() {
-    const buttonElement = document.activeElement as HTMLElement;
-    buttonElement.blur();
+    dialogRef.afterClosed().subscribe(() =>  this.StoredDataService.initializeData() )
+    ;
   }
 }

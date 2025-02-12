@@ -22,10 +22,14 @@ export class StoredDataService implements OnDestroy {
   saveUsersSubject: BehaviorSubject<any> = new BehaviorSubject([]);
 
   private firestore: Firestore = inject(Firestore);
-  unsubUsers;
+  unsubUsers:any ;
   adressID = 'users';
 
   constructor() {
+    this.initializeData();
+  }
+
+  initializeData() {
     this.unsubUsers = this.subUserList();
   }
 

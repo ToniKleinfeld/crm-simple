@@ -98,7 +98,7 @@
   }
 
   <mat-dialog-actions>
-    <button [disabled]="loading" mat-button color="primary" (click)="onNoClick()">Cancel</button>
+    <button [disabled]="loading" mat-button color="primary" (click)="onNoClick()" mat-dialog-close>Cancel</button>
     <button [disabled]="loading" mat-button color="primary" (click)="saveEdit()">Save</button>
   </mat-dialog-actions>
 </div>

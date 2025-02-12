@@ -1,6 +1,11 @@
 import { Component, OnDestroy, OnInit, Inject } from '@angular/core';
 
-import { MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
+import {
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+  MatDialogModule,
+  MatDialogClose,
+} from '@angular/material/dialog';
 import { User } from '../../../../models/user.class';
 import { StoredDataService } from '../../../shared/service/stored-data.service';
 import { provideNativeDateAdapter } from '@angular/material/core';
@@ -24,6 +29,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatDatepickerModule,
     MatInputModule,
     MatButtonModule,
+    MatDialogClose,
   ],
   providers: [provideNativeDateAdapter()],
   templateUrl: './dialog-edit-user.component.html',
@@ -64,7 +70,7 @@ export class DialogEditUserComponent implements OnInit, OnDestroy {
   ];
 
   pickedImg?: number;
-  oldUserInfo?: any;
+  public oldUserInfo?: any;
 
   ngOnInit(): void {
     this.saveUsersSubscription =
@@ -78,7 +84,7 @@ export class DialogEditUserComponent implements OnInit, OnDestroy {
   }
 
   onNoClick(): void {
-    this.resetUser()
+    this.StoredDataService.initializeData();
     this.dialogRef.close();
   }
 
@@ -95,38 +101,11 @@ export class DialogEditUserComponent implements OnInit, OnDestroy {
   getUsersData() {
     let userarray = this.StoredDataService.savedUsers;
     let filterForUserId = userarray.filter((user) => user.id === this.userID);
-    this. oldUserInfo = this.saveOldUserData(filterForUserId[0])
     return filterForUserId[0];
   }
 
   changeProfilePic(id: number) {
     this.pickedImg = id;
     this.user.img = this.userImages[id];
-  }
-
-  saveOldUserData(obj:any){
-    return {
-      firstName : obj.firstName,
-      lastName : obj.lastName,
-      birthDate : obj.birthDate,
-      mail : obj.mail,
-      street : obj.street,
-      zipCode : obj.zipCode,
-      city : obj.city,
-      img : obj.img,
-      bgColor : obj.bgColor,
-    }
-  }
-
-  resetUser(){
-    this.user.firstName = this.oldUserInfo?.firstName!;
-    this.user.lastName = this.oldUserInfo?.lastName!;
-    this.user.birthDate = this.oldUserInfo?.birthDate!;
-    this.user.mail = this.oldUserInfo?.mail!;
-    this.user.street = this.oldUserInfo?.street!;
-    this.user.zipCode = this.oldUserInfo?.zipCode!;
-    this.user.city = this.oldUserInfo?.city!;
-    this.user.img = this.oldUserInfo?.img!;
-    this.user.bgColor = this.oldUserInfo?.bgColor!;
   }
 }
