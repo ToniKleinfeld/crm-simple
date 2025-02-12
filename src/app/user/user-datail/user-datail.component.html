@@ -5,10 +5,10 @@
       <button mat-icon-button color="basic" matTooltip="Menu" [matMenuTriggerFor]="menuName" (click)="blurArria()">
         <mat-icon>more_vert</mat-icon>
       </button>
-      <mat-menu #menuName="matMenu" xPosition="before">
-        <button mat-menu-item (click)="openEdit('user')">Edit personal info</button>
-        <button mat-menu-item (click)="openEdit('image')">Change profile image</button>
-        <button mat-menu-item (click)="openEdit('bgc')">Change background color</button>
+      <mat-menu #menuName="matMenu" xPosition="before" >
+        <span mat-menu-item (click)="openEdit('user')" >Edit personal info</span>
+        <span mat-menu-item (click)="openEdit('image')" >Change profile image</span>
+        <span mat-menu-item (click)="openEdit('bgc')" > Change background color</span>
       </mat-menu>
     </div>
 
@@ -29,7 +29,7 @@
       <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #menu="matMenu" xPosition="before">
-      <button mat-menu-item (click)="openEdit('address')">Edit address</button>
+      <span mat-menu-item (click)="openEdit('address')" >Edit address</span>
     </mat-menu>
   </div>
 
