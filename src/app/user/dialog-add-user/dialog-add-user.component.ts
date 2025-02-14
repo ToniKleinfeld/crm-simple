@@ -11,20 +11,19 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'app-dialog-add-user',
-  standalone: true,
-  imports: [
-    MatProgressBarModule,
-    MatDialogModule,
-    FormsModule,
-    MatFormFieldModule,
-    MatDatepickerModule,
-    MatInputModule,
-    MatButtonModule,
-  ],
-  providers: [provideNativeDateAdapter()],
-  templateUrl: './dialog-add-user.component.html',
-  styleUrl: './dialog-add-user.component.scss',
+    selector: 'app-dialog-add-user',
+    imports: [
+        MatProgressBarModule,
+        MatDialogModule,
+        FormsModule,
+        MatFormFieldModule,
+        MatDatepickerModule,
+        MatInputModule,
+        MatButtonModule,
+    ],
+    providers: [provideNativeDateAdapter()],
+    templateUrl: './dialog-add-user.component.html',
+    styleUrl: './dialog-add-user.component.scss'
 })
 export class DialogAddUserComponent {
   user = new User();

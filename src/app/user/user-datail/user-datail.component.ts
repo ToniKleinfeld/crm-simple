@@ -11,11 +11,10 @@ import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-user-datail',
-  standalone: true,
-  imports: [MatIcon, MatMenuModule, MatButtonModule, MatCardModule, CommonModule],
-  templateUrl: './user-datail.component.html',
-  styleUrl: './user-datail.component.scss',
+    selector: 'app-user-datail',
+    imports: [MatIcon, MatMenuModule, MatButtonModule, MatCardModule, CommonModule],
+    templateUrl: './user-datail.component.html',
+    styleUrl: './user-datail.component.scss'
 })
 export class UserDatailComponent implements OnInit, OnDestroy {
   constructor(

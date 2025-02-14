@@ -18,22 +18,21 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'app-dialog-edit-user',
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatProgressBarModule,
-    MatDialogModule,
-    FormsModule,
-    MatFormFieldModule,
-    MatDatepickerModule,
-    MatInputModule,
-    MatButtonModule,
-    MatDialogClose,
-  ],
-  providers: [provideNativeDateAdapter()],
-  templateUrl: './dialog-edit-user.component.html',
-  styleUrl: './dialog-edit-user.component.scss',
+    selector: 'app-dialog-edit-user',
+    imports: [
+        CommonModule,
+        MatProgressBarModule,
+        MatDialogModule,
+        FormsModule,
+        MatFormFieldModule,
+        MatDatepickerModule,
+        MatInputModule,
+        MatButtonModule,
+        MatDialogClose,
+    ],
+    providers: [provideNativeDateAdapter()],
+    templateUrl: './dialog-edit-user.component.html',
+    styleUrl: './dialog-edit-user.component.scss'
 })
 export class DialogEditUserComponent implements OnInit, OnDestroy {
   user: User = new User();

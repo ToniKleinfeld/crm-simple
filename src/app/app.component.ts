@@ -7,18 +7,17 @@ import { MatButtonModule } from '@angular/material/button';
 
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [
-    RouterOutlet,
-    RouterLink,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatIcon,
-    MatButtonModule,
-  ],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+    selector: 'app-root',
+    imports: [
+        RouterOutlet,
+        RouterLink,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatIcon,
+        MatButtonModule,
+    ],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss'
 })
 export class AppComponent implements AfterViewInit {
   private readonly ARIA_HIDDEN_VALUE = "false";
