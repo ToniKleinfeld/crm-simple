@@ -1,0 +1,10 @@
+@use '../shared/mixin.scss' as m;
+
+.heat-map{
+  width: fit-content;
+}
+
+section{
+  @include m.center($x:30px);
+  flex-wrap: wrap;
+}
