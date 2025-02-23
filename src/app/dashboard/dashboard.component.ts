@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LegendPosition, NgxChartsModule } from '@swimlane/ngx-charts';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { multi, single } from './data';
 import { MatCardModule } from '@angular/material/card';
 
@@ -14,8 +14,7 @@ export class DashboardComponent {
   multi: any[] = multi; // hier datentypen kommen in html in [results] , hier unterschiedlicher aufbau zwischen multi , single
   single: any[] = single;
 
-
-  small_view:[number,number] = [500,300]
+  small_view: [number, number] = [500, 300];
   medium_view: [number, number] = [700, 300]; // einstellung Größe , hier evtl verschiedene erstellen für unterschiedliche diagramme
 
   //allgmeine einstellung
@@ -43,4 +42,6 @@ export class DashboardComponent {
   colorScheme: any = {
     domain: ['#5AA454', '#E44D25', '#CFC0BB', '#7aa3e5', '#a8385d', '#aae3f5'],
   };
+
+  // --> modul für charts : npm install @swimlane/ngx-charts --save
 }
