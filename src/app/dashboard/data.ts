@@ -83,5 +83,17 @@ export var single = [
   {
     "name": "France",
     "value": 7200000
+  },
+  {
+    "name": "Netherland",
+    "value": 700000
+  },
+  {
+    "name": "Italy",
+    "value": 3300000
+  },
+  {
+    "name": "Denmark",
+    "value": 1200000
   }
 ];

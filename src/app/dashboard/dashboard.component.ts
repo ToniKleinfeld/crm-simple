@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { LegendPosition, NgxChartsModule } from '@swimlane/ngx-charts';
 import { multi, single } from './data';
 import { MatCardModule } from '@angular/material/card';
 
@@ -11,13 +11,12 @@ import { MatCardModule } from '@angular/material/card';
   styleUrl: './dashboard.component.scss',
 })
 export class DashboardComponent {
-  multi: any[] = multi; // hier datentypen
+  multi: any[] = multi; // hier datentypen kommen in html in [results] , hier unterschiedlicher aufbau zwischen multi , single
   single: any[] = single;
 
 
   small_view:[number,number] = [500,300]
   medium_view: [number, number] = [700, 300]; // einstellung Größe , hier evtl verschiedene erstellen für unterschiedliche diagramme
-
 
   //allgmeine einstellung
   legend: boolean = true;
@@ -27,15 +26,19 @@ export class DashboardComponent {
   yAxis: boolean = true;
   showYAxisLabel: boolean = true;
   showXAxisLabel: boolean = true;
+  gradient: boolean = true;
 
   // heat-map
   xAxisLabel: string = 'Country';
   yAxisLabel: string = 'Year';
 
   // Vertical-bar
-  gradient: boolean = true;
   yAxisLabel_vertical: string = 'Country';
   xAxisLabel_vertical: string = 'Population';
+
+  // Circle-bar
+  legendPosition: any = 'right';
+  isDoughnut: boolean = true;
 
   colorScheme: any = {
     domain: ['#5AA454', '#E44D25', '#CFC0BB', '#7aa3e5', '#a8385d', '#aae3f5'],

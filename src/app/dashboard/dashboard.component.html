@@ -1,21 +1,31 @@
 <section>
 
-  <mat-card class="heat-map">
+  <mat-card class="chart">
     <mat-card-content>
-      <ngx-charts-heat-map [view]="medium_view" [scheme]="colorScheme" [legend]="legend" [showXAxisLabel]="showXAxisLabel"
-        [showYAxisLabel]="showYAxisLabel" [xAxis]="xAxis" [yAxis]="yAxis" [xAxisLabel]="xAxisLabel"
-        [yAxisLabel]="yAxisLabel" [results]="multi">
+      <ngx-charts-heat-map [view]="medium_view" [scheme]="colorScheme" [legend]="legend"
+        [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxis]="xAxis" [yAxis]="yAxis"
+        [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" [results]="multi">
       </ngx-charts-heat-map>
     </mat-card-content>
   </mat-card>
 
-  <mat-card class="heat-map">
+  <mat-card class="chart">
     <mat-card-content>
       <ngx-charts-bar-vertical [view]="small_view" [scheme]="colorScheme" [results]="single" [gradient]="gradient"
         [xAxis]="xAxis" [yAxis]="yAxis" [legend]="legend" [showXAxisLabel]="showXAxisLabel"
         [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="yAxisLabel_vertical" [yAxisLabel]="xAxisLabel_vertical"
         [gradient]="gradient">
       </ngx-charts-bar-vertical>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="chart">
+    <mat-card-content>
+      <ngx-charts-pie-chart [view]="medium_view" [scheme]="colorScheme" [results]="single" [gradient]="gradient"
+        [legend]="legend" [gradient]="gradient" [legendPosition]="legendPosition"
+        [labels]="showLabels"
+        [doughnut]="isDoughnut">
+      </ngx-charts-pie-chart>
     </mat-card-content>
   </mat-card>
 
