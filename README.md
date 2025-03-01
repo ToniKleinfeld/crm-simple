@@ -1,27 +1,41 @@
-# CrmSimple
+<h1 align="center">Welcome to crm-simple 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-0.0.0-blue.svg?cacheSeconds=2592000" />
+  <a href="https://github.com/ToniKleinfeld/crm-simple/blob/master/LICENSE.txt" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+</p>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.6.
+> A simple CRM for better understandig , how using Firebase and covert Data  into usefull infors
 
-## Development server
+## Install
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+```sh
+npm install
+```
 
-## Code scaffolding
+## Usage
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```sh
+npm run start
+```
 
-## Build
+## Author
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+👤 **Toni Kleinfeld**
 
-## Running unit tests
+* Website: https://toni-kleinfeld.de/
+* Github: [@ToniKleinfeld](https://github.com/ToniKleinfeld)
+* LinkedIn: [@https:\/\/www.linkedin.com\/in\/tonikleinfeld\/](https://linkedin.com/in/https:\/\/www.linkedin.com\/in\/tonikleinfeld\/)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Show your support
 
-## Running end-to-end tests
+Give a ⭐️ if this project helped you!
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## 📝 License
 
-## Further help
+Copyright © 2025 [Toni Kleinfeld](https://github.com/ToniKleinfeld).<br />
+This project is [MIT](https://github.com/ToniKleinfeld/crm-simple/blob/master/LICENSE.txt) licensed.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
