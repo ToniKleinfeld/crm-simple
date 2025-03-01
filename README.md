@@ -35,7 +35,7 @@ Give a ⭐️ if this project helped you!
 ## 📝 License
 
 Copyright © 2025 [Toni Kleinfeld](https://github.com/ToniKleinfeld).<br />
-This project is [MIT](https://github.com/ToniKleinfeld/crm-simple/blob/master/LICENSE.txt) licensed.
+This project is [MIT]([https://github.com/ToniKleinfeld/crm-simple/blob/master/LICENSE.txt](https://github.com/ToniKleinfeld/crm-simple?tab=MIT-1-ov-file)) licensed.
 
 ***
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
